@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: client-svc
+server:
+  port: 8081    
+---
+spring:
+  profiles: dev
+  security:
+    oauth2:
+      client:
+        registration:
+          libri-oidc:
+            provider: spring
+            client-id: libri-oidc
+            client-secret: secret
+            authorization-grant-type: authorization_code
+            redirect-uri: "http://127.0.0.1:8081/login/oauth2/code/{registrationId}"
+            scope: openid
+            client-name: libri-oidc
+          libri-oidc-authorization-code:
+            provider: spring
+            client-id: libri-oidc
+            client-secret: secret
+            authorization-grant-type: authorization_code
+            redirect-uri: "http://127.0.0.1:8081/api"
+            scope: libri.read
+            client-name: libri-oidc-authorization-code
+        provider:
+          spring:
+            issuer-uri: http://auth-server:8080
+
+logging:
+    level:
+      org.springframework.web: DEBUG
+      org.springframework.security: DEBUG

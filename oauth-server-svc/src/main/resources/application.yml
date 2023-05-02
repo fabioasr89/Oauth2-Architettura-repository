@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: oauth-server-svc
+server:
+  port: 8080
+---
+spring:
+  profiles: dev
+  
+  
+authentication:
+  server:
+    issue: http://auth-server:8080
+
+logging:
+    level:
+      org.springframework.web: DEBUG
+      org.springframework.security: DEBUG
+     
