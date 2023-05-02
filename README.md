@@ -1,7 +1,7 @@
 ﻿#Architettura Oauth2 con spring
 
 Esempio di una architettura basata su oauth2 scritta interamente in spring.
-Essa si compone di un
+Essa si compone di un:
 	
 	
 	-authentication server, che emette token firmati e autenticato con
